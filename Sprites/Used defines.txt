@@ -1,0 +1,23 @@
+Sprite_Number = Level_ObjectID
+Sprite_State = Objects_State
+Sprite_X_Speed = Objects_XVel
+Sprite_Y_Speed = Objects_YVel
+
+Sprite_X_Position = Objects_X
+Sprite_Y_Position = Objects_Y
+
+Sprite_Water_Flag = Objects_InWater
+
+Sprite_Misc_Timer1 = Objects_Timer
+Sprite_Misc_Timer2 = Objects_Timer2
+
+Sprite_Misc_Table1 = Objects_Var1
+Sprite_Misc_Table2 = Objects_Var2
+Sprite_Misc_Table5 = Objects_Var5
+
+Sprite_Blocked_Status = Objects_DetStat
+
+SubHorzPos = Level_ObjCalcXDiffs
+SubVertPos = Level_ObjCalcYDiffs
+
+SubOffScreen = Object_DeleteOffScreen
