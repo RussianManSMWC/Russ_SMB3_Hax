@@ -10,9 +10,13 @@ chr050 - additional letters and cursor
 chr085 - recolored number tiles (since UP specifically for XUP is overwritten)
 
 prg000 - disabled death song
+
 prg002 - remapped UP part from XUP (after matching three cards)
+
 prg008 - removes timer set after player falls in the pit/time-up/got crushed, so it's the same as regular death
+
 prg029 - bank where retry system is located, overwrites original death code
+
 prg030 - adds checks for retry
 
 NOTES:
