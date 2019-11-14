@@ -24,6 +24,6 @@ BUGS:
 -Bro fights and koopa kid airships don't initialize propertly after choosing RETRY (airship doesn't appear on OW until player exits another level (?))
 
 Special thanks:
-worldpeace of Super Mario World Central - retry system for Super Mario World that inspired me to create this for SMB3
+worldpeace of Super Mario World Central - retry system for Super Mario World that inspired me to create this for SMB3.
 
 Fun fact: This is THE first SMB3 hack i've made ever. Quite ambitious, eh?
