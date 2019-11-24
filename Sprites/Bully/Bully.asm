@@ -27,7 +27,7 @@ ObjPBully:
 	.byte $B9, $BB, $BD, $BF
 	
 BumpSpd:
-db $30,-$30							;player's bump speed
+db $30,-$30						;player's bump speed
 	
 BullyBumpSpd:
 .byte -$1A,$1A						;bully's bump speed
@@ -39,54 +39,54 @@ Bully:
 	JSR SubOffScreen				;offscreen situation
 	
 	LDA Player_HaltGame				;don't do whatever
-    BNE @Re							;
+    	BNE @Re						;
 	
 	JSR Object_Move					;interact with objects
 	
-	LDA Objects_DetStat,X			;
-	AND #$04						;
+	LDA Objects_DetStat,X				;
+	AND #$04					;
 	BEQ @NoFloorHit					;
 	
-	JSR Object_HitGround			;stay on ground
+	JSR Object_HitGround				;stay on ground
 	
 ;only chase when grounded
 
 	JSR SubHorzPos					;face player
 	
 	LDA CommonSprFlip,y				;
-	STA Objects_FlipBits,X			;
+	STA Objects_FlipBits,X				;
 	
-	LDA Sprite_X_Speed,X			;set speed
+	LDA Sprite_X_Speed,X				;set speed
 	CMP BullyXSpeed,y				;cap speed
 	BEQ @NoFloorHit					;
-	CLC								;add acceleration to speed
-	ADC BullyDecceleration,y		;
-	STA Sprite_X_Speed,X			;store speed
+	CLC						;add acceleration to speed
+	ADC CommonAcceleration,y			;
+	STA Sprite_X_Speed,X				;store speed
 
 @NoFloorHit
-	LDA Objects_DetStat,X			;if hit wall, invert speed and shiz
-	AND #$03						;
-	BEQ @NoWall						;
+	LDA Objects_DetStat,X				;if hit wall, invert speed and shiz
+	AND #$03					;
+	BEQ @NoWall					;
 	
-	LDA Sprite_X_Speed,X			;
+	LDA Sprite_X_Speed,X				;
 	;EOR #$FF
 	;TAY
 	;INY
 	;TYA
-	JSR Negate						;yeah, this is a thing
-	STA Sprite_X_Speed,X			;
+	JSR Negate					;yeah, this is a thing
+	STA Sprite_X_Speed,X				;
 
-	JSR Bully_PlayBumpSnd			;play bump sound when hit wall
+	JSR Bully_PlayBumpSnd				;play bump sound when hit wall
 	
 @NoWall
-	LDA #$07						;animate every 7? frames
+	LDA #$07					;animate every 7? frames
 	JSR CommonAnimate				;
 	
 @Meh
-	JSR Object_HitTestRespond		;check collision with player
+	JSR Object_HitTestRespond			;check collision with player
 	
 @Re
-	JMP Object_ShakeAndDraw			;and draw ofc
+	JMP Object_ShakeAndDraw				;and draw ofc
 
 Bully_Interaction:
 JSR SubHorzPos						;from what side bump has occured
@@ -94,15 +94,15 @@ JSR SubHorzPos						;from what side bump has occured
 LDA BumpSpd,y						;set bump speed
 STA Player_XVel						;for player
 
-LDA #$1A							;set longer time for frame to change
-STA Sprite_Misc_Timer2,x			;
-STA Sprite_Misc_Timer1,x			;and don't interact with player again for set time
+LDA #$1A						;set longer time for frame to change
+STA Sprite_Misc_Timer2,x				;
+STA Sprite_Misc_Timer1,x				;and don't interact with player again for set time
 
-LDA #$01							;set frame
+LDA #$01						;set frame
 STA Objects_Frame,X					;
 
 LDA BullyBumpSpd,y					;set bump speed
-STA Sprite_X_Speed,X				;for bully
+STA Sprite_X_Speed,X					;for bully
 
 Bully_PlayBumpSnd:
 LDA Sound_QPlayer					;play bump speed
