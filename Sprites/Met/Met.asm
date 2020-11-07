@@ -21,6 +21,9 @@ Object_AttrFlags:
 
 ObjectGroup00_PatTableSel:
 	.byte OPTS_SETPT5 | 15
+	
+ObjectGroup00_Attributes3:	
+	.byte OA3_HALT_NORMALONLY
 
 ObjPMet:
 db $89,$8B				;walk 1/stand still
