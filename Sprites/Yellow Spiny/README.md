@@ -1,0 +1,1 @@
+This is Crazy Spiny/Yellow Spiny. It acts like normal spiny, except it starts spinning and throws itself at the player when they are close.

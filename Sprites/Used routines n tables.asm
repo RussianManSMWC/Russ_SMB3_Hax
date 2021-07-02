@@ -154,7 +154,7 @@ RTS
 ;standart routine to make sprite face player on init (also can be used to set speed afterwards)
 Init_FacePlayer:
 JSR SubHorzPos
-TYA
+;TYA								;why did I put TYA here???
 LDA CommonSprFlip,y
 STA Objects_FlipBits,X
 RTS
