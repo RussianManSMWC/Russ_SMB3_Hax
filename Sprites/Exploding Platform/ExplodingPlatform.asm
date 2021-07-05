@@ -54,6 +54,7 @@ JSR Object_ShakeAndDraw
 
 LDA Player_HaltGame
 BEQ @Continue
+RTS												;how did I miss this???
 
 @Continue
 LDA Sprite_Misc_Table2,x						;check pressed flag
