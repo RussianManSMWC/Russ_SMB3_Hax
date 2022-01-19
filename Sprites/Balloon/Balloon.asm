@@ -80,6 +80,9 @@ STA Sprite_RAM+15,y
 @NoFlip
 JSR Object_DeleteOffScreen
 
+LDA Player_HaltGame
+BNE Baloon_Return					;forgot the most essential
+
 LDA Counter_1						;flip the rope every few frames
 AND #$07
 BNE @NoFlipChange

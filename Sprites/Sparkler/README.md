@@ -1,0 +1,1 @@
+This enemy moves fast and stays on ledges, and can't be harmed in any way.

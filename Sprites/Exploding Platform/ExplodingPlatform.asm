@@ -91,6 +91,9 @@ STA Sound_QLevel1
 
     ; Test if Player is standing on top of platform
 
+	LDA #$00
+	STA Object_VelCarry				;no vel carry!!! (so the player doesnt slide off)
+
     LDA Player_SpriteY
     CLC
     ADC #20

@@ -1,0 +1,1 @@
+This is an enemy from Mega Man 4. It's stationary and occasionally shoots a fireball. Can be bounced on indefenitely.

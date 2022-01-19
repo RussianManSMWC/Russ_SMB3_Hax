@@ -33,6 +33,8 @@ ObjPDisco:
 DiscoShell_BumpSpeeds:
 db -$20,$20
 
+DiscoShell_ID = $05							;inserted sprite number (necessary for slamming into each other)
+
 DiscoShell:
 
 ;cheat the system, draw a normal shell (drawing routine for thrown/kicked sprites)
@@ -162,12 +164,16 @@ STA Objects_SprAttr,x
 @A								;wouldve use + but it breaks sublabels
     STA Objects_XVel,Y
 
+LDA Level_ObjectID,Y
+CMP #DiscoShell_ID				;if another sprite we killed was a disco shell (which is never in a kicked state)
+BEQ @KillEachOther				;do kill each other
+
     LDA Objects_State,Y
     CMP #OBJSTATE_KICKED
     BNE @Ignorance  ; If the impacted object's state is not Kicked, jump to PRG000_CD36
 
     ; Another kicked object on the way... (slam and kill eachother)
-
+@KillEachOther
     LDA Objects_KillTally,Y
     JSR Score_Get100PlusPts  ; Get the total score this OTHER kicked shell object earned
     JSR ObjectKill_SetShellKillVars  ; Kill our kicked object and set ShellKill variables

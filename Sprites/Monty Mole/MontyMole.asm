@@ -235,16 +235,11 @@ MontyMole_IsOut:
 	JMP Object_ShakeAndDraw
 
 MontyMole_Init:
-;JSR Init_FacePlayer
+JSR Init_FacePlayer
 
 	LDA Sprite_X_Position,x
 	AND #$10
 	STA Sprite_Misc_Table2,x
-
-Init_FacePlayer:
-	JSR SubHorzPos
-	LDA CommonSprFlip,y
-	STA Objects_FlipBits,X
 	RTS
 
 MontyMole_BrickPieceYOffset:  .byte -$04, -$04, $04, $04
