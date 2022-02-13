@@ -2316,13 +2316,16 @@ PRG030_8E5D:
 	
 ;!MESSAGES
 ;test code - press select to display a message
-    LDA Pad_Input					;wait for A to close message box
+    LDA Pad_Input					;press select to enable a message box
     AND #PAD_SELECT
 	BEQ @Meh
 	
 	INC MessageBoxTask
 
 @Meh
+;end of test code
+
+;actually necessary code
 	LDA MessageBoxTask
 	BEQ @CheckPause
 	
@@ -2343,7 +2346,6 @@ PRG030_8E5D:
 	BNE @DidntPress
 
 @CheckPause
-;end of test code
     LDA SndCur_Pause
     BNE PRG030_8E79  ; Can't unpause game while pause sound is playing
 
