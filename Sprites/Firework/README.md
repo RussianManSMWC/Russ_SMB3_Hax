@@ -1,0 +1,1 @@
+This is fireworks from Super Mario World. The explosions themselves can damage the player, so it can be used as a hazard.

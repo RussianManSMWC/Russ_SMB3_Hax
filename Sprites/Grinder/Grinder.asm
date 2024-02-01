@@ -20,7 +20,7 @@ ObjectGroup00_PatTableSel:
 	.byte OPTS_SETPT5 | 15
 	
 ObjectGroup00_KillAction:
-    .byte KILLACT_STANDART
+    .byte KILLACT_STANDARD
 	
 Object_AttrFlags:
 	.byte OAT_BOUNDBOX11 | OAT_WEAPONIMMUNITY | OAT_FIREIMMUNITY | OAT_HITNOTKILL

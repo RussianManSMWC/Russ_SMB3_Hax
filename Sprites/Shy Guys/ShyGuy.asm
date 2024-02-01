@@ -39,6 +39,12 @@ Object_AttrFlags:
     .byte OAT_BOUNDBOX01 | OAT_BOUNCEOFFOTHERS 		;
     .byte OAT_BOUNDBOX06 | OAT_BOUNCEOFFOTHERS 		;
     .byte OAT_BOUNDBOX06 | OAT_BOUNCEOFFOTHERS		;
+
+ObjectGroup00_KillAction:
+    .byte KILLACT_STANDARD
+    .byte KILLACT_STANDARD
+    .byte KILLACT_STANDARD
+    .byte KILLACT_STANDARD
 	
 ObjectGroup00_PatTableSel:
     .byte OPTS_SETPT5 | 15 							; custom graphic
@@ -50,10 +56,10 @@ ObjectGroup00_PatternSets:
 ObjPShyGuy:
 	.byte $B5,$B7,$95,$97			;only used by small shy guys, giant shy guy uses it's own table not set in the pattern set
 
-Sprite_GiantShyGuyNoLedge = $15				;what sprite number are giant eeries (should be right after small eeries
+Sprite_GiantShyGuyNoLedge = $15				;what sprite number are giant shy guy (should be right after small shy guys)
 
 ShyGuy_Init:
-INC Sprite_Misc_Table1,x			;flag indicating this is a wave eerie
+INC Sprite_Misc_Table1,x			;flag indicating this is a ledge-staying shy guy
 JMP Init_FacePlayer					;
 
 ShyGuy_Main:

@@ -153,7 +153,7 @@ STA Sprite_Misc_Timer1,x
 @Meh
 RTS
 
-;standart routine to make sprite face player on init (also can be used to set speed afterwards)
+;standard routine to make sprite face player on init (also can be used to set speed afterwards)
 Init_FacePlayer:
 JSR SubHorzPos
 ;TYA								;why did I put TYA here???

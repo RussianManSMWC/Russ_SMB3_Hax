@@ -10,20 +10,20 @@ ObjectGroup00_CollideJumpTable:
 ObjectGroup00_Attributes:
 	.byte OA1_PAL3 | OA1_HEIGHT16 | OA1_WIDTH16
 	
-ObjectGroup00_KillAction:
-    .byte KILLACT_JUSTDRAW16X16
-	
 ObjectGroup00_Attributes2:
 	.byte OA2_NOSHELLORSQUASH | OA2_TDOGRP1
-	
-Object_AttrFlags:
-	.byte OAT_BOUNDBOX01 | OAT_FIREIMMUNITY
+
+ObjectGroup00_Attributes3:	
+	.byte OA3_HALT_JUSTDRAW
 
 ObjectGroup00_PatTableSel:
 	.byte OPTS_SETPT5 | 15
 	
-ObjectGroup00_Attributes3:	
-	.byte OA3_HALT_NORMALONLY
+ObjectGroup00_KillAction:
+    .byte KILLACT_JUSTDRAW16X16
+
+Object_AttrFlags:
+	.byte OAT_BOUNDBOX01 | OAT_FIREIMMUNITY
 
 ObjPMet:
 db $89,$8B				;walk 1/stand still
@@ -75,6 +75,11 @@ dw Walk							;walk? so many options, man!
 Wait:
 ;check proximity
 LDA Objects_Timer,x
+BNE @Return
+
+JSR Object_DetermineHorzVis		;
+
+LDA Objects_SprHVis,X			;check if offscreen
 BNE @Return
 
 JSR SubHorzPos					;check which side the player's on

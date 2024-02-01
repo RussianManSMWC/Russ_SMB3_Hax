@@ -1,0 +1,1 @@
+This is a Rip Van Fish from Super Mario World. Does not spawn Zs.

@@ -18,7 +18,10 @@ ObjectGroup00_Attributes3:
 
 Object_AttrFlags:
     .byte OAT_BOUNDBOX01 | OAT_FIREIMMUNITY | OAT_HITNOTKILL
-	
+
+ObjectGroup00_KillAction:
+	.byte KILLACT_STANDARD
+
 ObjectGroup00_PatTableSel:
 	.byte OPTS_SETPT5 | $0A				;same as normal chain chomp (duh)
 	

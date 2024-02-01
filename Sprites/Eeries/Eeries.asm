@@ -39,6 +39,12 @@ Object_AttrFlags:
     .byte OAT_BOUNDBOX01 | OAT_FIREIMMUNITY | OAT_HITNOTKILL    ; eerie wave
     .byte OAT_BOUNDBOX06 | OAT_FIREIMMUNITY | OAT_HITNOTKILL    ; giant eerie
     .byte OAT_BOUNDBOX06 | OAT_FIREIMMUNITY | OAT_HITNOTKILL    ; giant eerie wave
+
+ObjectGroup00_KillAction:
+	.byte KILLACT_STANDARD
+	.byte KILLACT_STANDARD
+	.byte KILLACT_STANDARD
+	.byte KILLACT_STANDARD
 	
 ObjectGroup00_PatTableSel:
     .byte OPTS_SETPT5 | 15 			; custom graphic

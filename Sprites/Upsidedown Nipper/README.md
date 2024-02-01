@@ -1,0 +1,1 @@
+A Super Mario Bros. 3 Nipper (staionary, doesn't spit fireballs), but it's upside-down.

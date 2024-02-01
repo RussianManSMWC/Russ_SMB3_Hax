@@ -14,13 +14,13 @@ ObjectGroup00_Attributes2:
 	.byte OA2_NOSHELLORSQUASH | OA2_TDOGRP1
 	
 ObjectGroup00_Attributes3:
-	.byte OA3_HALT_NORMALONLY
+	.byte OA3_HALT_JUSTDRAW
 	
 ObjectGroup00_PatTableSel:
 	.byte OPTS_SETPT5 | 15
 	
 ObjectGroup00_KillAction:
-    .byte KILLACT_STANDART
+    .byte KILLACT_STANDARD
 	
 Object_AttrFlags:
 	.byte OAT_BOUNDBOX01
@@ -54,10 +54,6 @@ MontyMole_HopeTime = $50
 MontyMole_HoppingXSpd:
 db $10,-$10
 
-;common accleration (duh)
-CommonAcceleration:
-db $01, -$01
-
 MontyMole:
 JSR Object_DeleteOffScreen
 
@@ -72,17 +68,23 @@ dw MontyMole_JumpOut
 dw MontyMole_IsOut
 
 MontyMole_WaitForPlayer:
+	;JSR Object_AnySprOffscreen			;offscreen check i forgor
+	;BNE @Return
+
+	JSR Object_DetermineHorzVis
+
+	LDA Objects_SprHVis,X
+	BNE @Return
+
     JSR Level_ObjCalcXDiffs
 
-    LDA Temp_Var16
+    LDA Temp_Var16					;check if close enough
     CLC
     ADC #$60
     CMP #$C0
     BCS @Return
 	
 	INC Sprite_Misc_Table5,x
-	
-	;add timer
 	
 	LDA #MontyMole_HillTime
 	STA Sprite_Misc_Timer1,x

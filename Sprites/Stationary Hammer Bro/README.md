@@ -1,0 +1,1 @@
+A stationary Super Mario World Hammer Bro. Note that it can't be killed by bumping it from underneath due to buggy behavior. Graphics by Amer1ciuM (Mario Fan Games Galaxy).

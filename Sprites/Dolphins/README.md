@@ -1,0 +1,1 @@
+These are dolphins from Super Mario World, both vertical and horizontal variants.
